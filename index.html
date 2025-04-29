@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甘草之家 - 天然甘草健康生活</title>
+
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+  body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+       
+        a {
+            text-decoration: none;
+            color: #5a8f3d;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+        /* 头部样式 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #5a8f3d;
+        }
+        
+        .logo span {
+            color: #d4a76a;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #d4a76a;
+        }
+        
+        /* 轮播图样式 */
+        .banner {
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .banner img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* 分类导航 */
+        .categories {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .categories h2 {
+            margin-bottom: 15px;
+            color: #5a8f3d;
+            font-size: 20px;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .category-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: #f9f9f9;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-item img {
+            width: 250px;
+            height: 250px;
+            margin-bottom: 10px;
+        }
+       
+        
+        /* 搜索栏 */
+        .search-bar {
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: #5a8f3d;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 7px 15px;
+            cursor: pointer;
+        }
+        
+        /* 线下体验馆 */
+        .experience-stores {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .experience-stores h2 {
+            margin-bottom: 15px;
+            color: #5a8f3d;
+            font-size: 20px;
+        }
+        
+        .store-map {
+            height: 300px;
+            background-color: #eee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .store-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .store-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .store-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .store-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .store-card h3 {
+            margin-bottom: 10px;
+            color: #5a8f3d;
+        }
+        
+        .store-card p {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .store-card button {
+            background-color: #d4a76a;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        /* 产品展示页样式 */
+        .product-page {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        
+        .thumbnail-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        
+        .thumbnail {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .product-info h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .product-price {
+            font-size: 28px;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+        
+        .product-meta {
+            margin-bottom: 20px;
+        }
+        
+        .product-meta p {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .product-description {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .add-to-cart, .buy-now {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart {
+            background-color: #f8f8f8;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        
+        .buy-now {
+            background-color: #5a8f3d;
+            color: white;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #eee;
+        }
+        
+        .buy-now:hover {
+            background-color: #4a7f2d;
+        }
+        
+        .product-reviews {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .product-reviews h2 {
+            margin-bottom: 15px;
+            color: #5a8f3d;
+            font-size: 20px;
+        }
+        
+        .review {
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        
+        .review:last-child {
+            border-bottom: none;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .review-author {
+            font-weight: bold;
+        }
+        
+        .review-rating {
+            color: #d4a76a;
+        }
+        
+        .review-content {
+            margin-bottom: 10px;
+        }
+        
+        .review-images {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .review-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .review-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .review-action {
+            color: #666;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .related-products {
+            margin-bottom: 30px;
+        }
+        
+        .related-products h2 {
+            margin-bottom: 15px;
+            color: #5a8f3d;
+            font-size: 20px;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-details {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .product-price-small {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        /* 资讯文章页样式 */
+        .article-page {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .article-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .article-title {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .article-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .article-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content {
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        
+        .article-content h2, .article-content h3 {
+            margin: 30px 0 15px;
+            color: #5a8f3d;
+        }
+        
+        .related-articles {
+            margin-bottom: 30px;
+        }
+        
+        .related-articles h2 {
+            margin-bottom: 15px;
+            color: #5a8f3d;
+            font-size: 20px;
+        }
+        
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .article-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .article-card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .article-card-content {
+            padding: 15px;
+        }
+        
+        .article-card-title {
+            font-size: 18px;
+            margin-bottom: 8px;
+            height: 50px;
+            overflow: hidden;
+        }
+        
+        .article-card-excerpt {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+            height: 60px;
+            overflow: hidden;
+        }
+        
+        .article-card-meta {
+            color: #999;
+            font-size: 12px;
+        }
+
+   /* 会员中心样式 */
+        .member-center {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .member-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid #d4a76a;
+        }
+        
+        .member-info h2 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .member-level {
+            display: inline-block;
+            background-color: #d4a76a;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .member-points {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .member-menu {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .menu-item {
+            text-align: center;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            background-color: #f0f0f0;
+        }
+        
+        .menu-item i {
+            font-size: 24px;
+            color: #5a8f3d;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .member-orders {
+            margin-bottom: 30px;
+        }
+        
+        .member-orders h2 {
+            margin-bottom: 15px;
+            color: #5a8f3d;
+            font-size: 20px;
+        }
+        
+        .order-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        
+        .order-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .order-tab.active {
+            border-bottom: 2px solid #5a8f3d;
+            color: #5a8f3d;
+            font-weight: bold;
+        }
+        
+        .order-list {
+            display: none;
+        }
+        
+        .order-list.active {
+            display: block;
+        }
+        
+        .order-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .order-number {
+            color: #666;
+        }
+        
+        .order-status {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .order-products {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .order-product-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        .order-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        .order-total {
+            font-weight: bold;
+        }
+        
+        .order-actions button {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background-color: #f8f8f8;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .order-actions button.primary {
+            background-color: #5a8f3d;
+            color: white;
+            border: none;
+        }
+        
+        .member-collections {
+            margin-bottom: 30px;
+        }
+        
+        .member-collections h2 {
+            margin-bottom: 15px;
+            color: #5a8f3d;
+            font-size: 20px;
+        }
+        
+
+ 
+        /* 线下体验馆预约页样式 */
+        .booking-page {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .store-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .store-gallery {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .store-main-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .store-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        
+        .store-thumbnail {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .store-info h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .store-meta {
+            margin-bottom: 20px;
+        }
+        
+        .store-meta p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .store-meta i {
+            margin-right: 8px;
+            color: #5a8f3d;
+        }
+        
+        .store-description {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .booking-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .booking-form h2 {
+            margin-bottom: 20px;
+            color: #5a8f3d;
+            font-size: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .calendar {
+            margin-bottom: 20px;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .calendar-title {
+            font-weight: bold;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        
+        .calendar-day {
+            text-align: center;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .calendar-day:hover {
+            background-color: #eee;
+        }
+        
+        .calendar-day.active {
+            background-color: #5a8f3d;
+            color: white;
+        }
+        
+        .calendar-day.disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .time-slot {
+            padding: 8px;
+            text-align: center;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .time-slot:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .time-slot.active {
+            background-color: #5a8f3d;
+            color: white;
+        }
+        
+        .time-slot.disabled {
+            background-color: #f9f9f9;
+            color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .submit-btn {
+            background-color: #5a8f3d;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #4a7f2d;
+        }
+
+/* 产品列表容器 */
+#products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 两列布局 */
+  gap: 25px; /* 产品间距 */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 单个产品样式 */
+.product {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.product:hover {
+  transform: translateY(-3px);
+}
+
+.product img {
+  width: 100%;
+  height: 700px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.product h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.product button {
+  padding: 8px 15px;
+  margin-top: 10px;
+  background: #5a8f3d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.product button:hover {
+  background: #4a7f2d;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  #products {
+    grid-template-columns: 1fr; /* 手机端单列显示 */
+    padding: 10px;
+  }
+  
+  .product img {
+    height: 150px;
+  }
+}
+
+
+/* 更多产品提示 */
+.more-products {
+    grid-column: 1 / -1; /* 跨所有列 */
+    text-align: center;
+    padding: 40px 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.coming-soon h3 {
+    color: #5a8f3d;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.coming-soon p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* 加载动画 */
+.loading-dots span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 4px;
+    background: #5a8f3d;
+    border-radius: 50%;
+    animation: dotPulse 1.4s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+    0%, 80%, 100% { transform: scale(0.5); }
+    40% { transform: scale(1); }
+}
+
+
+
+
+        
+        /* 页脚样式 */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #d4a76a;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .category-grid, .store-list, .product-grid, .article-grid, .member-menu, .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-page, .store-detail {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            .category-grid, .time-slots {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-grid, .article-grid, .member-menu, .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+ 
+
+/*购买按钮*/
+.buy-button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+/* 购物车样式 */
+.cart-btn {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background: #5a8f3d;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.cart-icon {
+    font-size: 24px;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #e74c3c;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    transition: right 0.3s;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.show {
+    right: 0;
+}
+
+.cart-header {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-cart {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.cart-item-price {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.remove-from-cart {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+}
+
+.cart-footer {
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+.cart-total {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 12px;
+    background: #5a8f3d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 评价系统 */
+.review-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.rating-stars {
+    display: inline-block;
+    font-size: 24px;
+    color: #ddd;
+}
+
+.rating-stars .star {
+    cursor: pointer;
+}
+
+.rating-stars .star.active {
+    color: #d4a76a;
+}
+
+.review-form textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.review-form button {
+    padding: 10px 20px;
+    background: #5a8f3d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* 消息提示 */
+.message-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    z-index: 1000;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .product-filters {
+        flex-direction: column;
+    }
+    
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .cart-sidebar.show {
+        right: 0;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">甘草<span>之家</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#products">产品中心</a></li>
+                    <li><a href="#articles">甘草资讯</a></li>
+                    <li><a href="#member">会员中心</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+       <script>
+     // 选择所有导航栏中的链接元素
+document.querySelectorAll('nav a').forEach(link => {
+    // 为每个链接添加点击事件监听器
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // 阻止默认的链接跳转行为
+
+        /* 隐藏所有页面 */
+        document.querySelectorAll('main, section').forEach(page => {
+            page.style.display = 'none'; // 将每个页面设置为隐藏
+        });
+
+        // 根据点击的链接获取对应的页面ID
+        const pageId = this.getAttribute('href').substring(1);
+        // 显示对应的页面
+        document.getElementById(pageId).style.display = 'block';
+    });
+});
+
+  </script>
+
+    <!-- 首页内容 -->
+    <main class="container" id="home">
+        <!-- 轮播图 -->
+  <div class="swiper hero-banner">
+    <div class="swiper-wrapper">
+        <!-- 轮播图1 -->
+        <div class="swiper-slide">
+            <img src="images/banner1.png" alt="甘草促销" class="banner-bg">
+            <div class="banner-content">
+                <h2>限时特惠</h2>
+                <p>全场甘草制品8折起</p>
+                <button>点击抢购</button>
+            </div>
+        </div>
+        
+        <!-- 轮播图2 -->
+        <div class="swiper-slide">
+            <img src="images/banner2.png" alt="新品上市" class="banner-bg">
+            <div class="banner-content">
+                <h2>新品上市</h2>
+                <p>甘草茶系列全新登场</p>
+                <button>立即了解</button>
+            </div>
+        </div>
+        
+        <!-- 轮播图3 -->
+        <div class="swiper-slide">
+            <img src="images/banner3.jpg" alt="会员专享" class="banner-bg">
+            <div class="banner-content">
+                <h2>会员专享</h2>
+                <p>注册会员享额外9折优惠</p>
+                <button>注册会员</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 导航按钮 -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    
+    <!-- 分页器（可选） -->
+    <div class="swiper-pagination"></div>
+</div>
+
+<!-- 引入Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+
+<style>
+    .hero-banner {
+        position: relative;
+        margin: 20px 0;
+        height: 400px; /* 设置一个固定高度 */
+    }
+    
+    .swiper-slide {
+        position: relative;
+        height: 100%;
+    }
+    
+    .banner-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .banner-content {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        z-index: 10;
+    }
+    
+    /* 导航按钮样式 */
+    .swiper-button-next, .swiper-button-prev {
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    /* 分页器样式 */
+    .swiper-pagination-bullet {
+        background: white;
+        opacity: 0.6;
+    }
+    .swiper-pagination-bullet-active {
+        background: white;
+        opacity: 1;
+    }
+</style>
+
+<!-- 引入Swiper JS -->
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        new Swiper('.hero-banner', {
+            autoplay: {
+                delay: 3000, // 3秒切换一次
+                disableOnInteraction: false, // 用户操作后继续自动播放
+            },
+            loop: true, // 循环播放
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true, // 分页器可点击
+            },
+            // 其他可选配置
+            speed: 800, // 切换速度800ms
+            effect: 'slide', // 切换效果
+        });
+    });
+</script>
+
+
+             
+        <!-- 分类导航 -->
+        <div class="categories">
+            <h2>产品分类</h2>
+            <div class="category-grid">
+                <div class="category-item">
+                    <img src="images\product1.jpg" alt="中药材">
+                    <p>中药材</p>
+                </div>
+                <div class="category-item">
+                    <img src="images\product2.jpg" alt="保健品">
+                    <p>保健品</p>
+                </div>
+                <div class="category-item">
+                    <img src="images\product4.jpg" alt="护肤品">
+                    <p>护肤品</p>
+                </div>
+                <div class="category-item">
+                    <img src="images\product3.jpg" alt="食品饮料">
+                    <p>食品饮料</p>
+                </div>
+            </div>
+        </div>
+       
+
+
+        <!-- 搜索栏 -->
+        <div class="search-bar">
+            <input type="text" placeholder="搜索甘草产品或文章资讯...">
+            <button>搜索</button>
+        </div>
+        
+
+
+        <!-- 线下体验馆推荐 -->
+      <div class="experience-stores">
+    <h2>线下体验馆推荐</h2>
+    <div class="store-map">
+        <img src="images/map.jpg" alt="体验馆地图">
+    </div>
+    <div class="store-list">
+        <div class="store-card">
+            <h3>甘草之家北京体验馆</h3>
+            <p>北京市朝阳区建国路88号</p>
+            <p>营业时间: 10:00-22:00</p>
+            <button class="reserve-btn" data-store="甘草之家北京体验馆">立即预约</button>
+        </div>
+        <div class="store-card">
+            <h3>甘草之家上海体验馆</h3>
+            <p>上海市浦东新区陆家嘴环路1000号</p>
+            <p>营业时间: 10:00-22:00</p>
+            <button class="reserve-btn" data-store="甘草之家上海体验馆">立即预约</button>
+        </div>
+        <div class="store-card">
+            <h3>甘草之家广州体验馆</h3>
+            <p>广州市天河区珠江新城88号</p>
+            <p>营业时间: 10:00-22:00</p>
+            <button class="reserve-btn" data-store="甘草之家广州体验馆">立即预约</button>
+        </div>
+    </div>
+</div>
+
+<!-- 预约弹窗 -->
+<div id="reservation-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="modal-title">预约体验馆</h3>
+        <form id="reservation-form">
+            <div class="form-group">
+                <label for="store-name">体验馆:</label>
+                <input type="text" id="store-name" readonly>
+            </div>
+            <div class="form-group">
+                <label for="reserve-date">预约日期:</label>
+                <input type="date" id="reserve-date" required>
+            </div>
+            <div class="form-group">
+                <label for="reserve-time">预约时间:</label>
+                <input type="time" id="reserve-time" min="10:00" max="22:00" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">手机号码:</label>
+                <input type="tel" id="phone" pattern="[0-9]{11}" placeholder="请输入11位手机号码" required>
+            </div>
+            <button type="submit" class="submit-btn">确认预约</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* 基本样式 */
+    .store-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .store-card {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        width: 300px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .store-card button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    
+    .store-card button:hover {
+        background-color: #45a049;
+    }
+    
+    /* 弹窗样式 */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+    }
+    
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        border-radius: 8px;
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .close:hover {
+        color: black;
+    }
+    
+    /* 表单样式 */
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    
+    .form-group input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    .submit-btn {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    .submit-btn:hover {
+        background-color: #45a049;
+    }
+</style>
+
+<script>
+    // 获取弹窗元素
+    const modal = document.getElementById("reservation-modal");
+    const reserveBtns = document.querySelectorAll(".reserve-btn");
+    const storeNameInput = document.getElementById("store-name");
+    const modalTitle = document.getElementById("modal-title");
+    const closeBtn = document.querySelector(".close");
+    const reservationForm = document.getElementById("reservation-form");
+    
+    // 为每个预约按钮添加点击事件
+    reserveBtns.forEach(btn => {
+        btn.addEventListener("click", function() {
+            const storeName = this.getAttribute("data-store");
+            storeNameInput.value = storeName;
+            modalTitle.textContent = `预约 ${storeName}`;
+            modal.style.display = "block";
+        });
+    });
+    
+    // 关闭弹窗
+    closeBtn.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+    
+    // 点击弹窗外部关闭
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+    
+    // 表单提交
+    reservationForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        
+        const storeName = storeNameInput.value;
+        const date = document.getElementById("reserve-date").value;
+        const time = document.getElementById("reserve-time").value;
+        const phone = document.getElementById("phone").value;
+        
+        // 这里可以添加AJAX请求将数据发送到服务器
+        alert(`预约成功!\n体验馆: ${storeName}\n时间: ${date} ${time}\n手机号: ${phone}`);
+        
+        // 重置表单并关闭弹窗
+        reservationForm.reset();
+        modal.style.display = "none";
+    });
+    
+    // 设置最小日期为今天
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("reserve-date").min = today;
+</script>
+    </main>
+
+
+
+   <!-- 产品中心内容 -->
+<section class="container" id="products" style="display: none;">
+    <div class="product-filters">
+        <div class="filter-group">
+            <label>分类：</label>
+            <select id="category-filter">
+                <option value="all">全部</option>
+                <option value="中药材">中药材</option>
+                <option value="保健品">保健品</option>
+                <option value="护肤品">护肤品</option>
+                <option value="食品饮料">食品饮料</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>价格：</label>
+            <select id="price-filter">
+                <option value="all">全部</option>
+                <option value="0-50">0-50元</option>
+                <option value="50-100">50-100元</option>
+                <option value="100-200">100-200元</option>
+                <option value="200+">200元以上</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <input type="text" id="search-products" placeholder="搜索产品...">
+            <button id="search-btn">搜索</button>
+        </div>
+    </div>
+    
+    <div class="product-grid" id="product-container">
+        <!-- 产品将通过JavaScript动态加载 -->
+    </div>
+</section>
+
+ 
+
+
+<!-- 购物车侧边栏 -->
+<div class="cart-sidebar">
+    <div class="cart-header">
+        <h3>购物车 (<span id="cart-count">0</span>)</h3>
+        <span class="close-cart">&times;</span>
+    </div>
+    <div class="cart-items" id="cart-items">
+        <!-- 购物车内容将通过JavaScript动态加载 -->
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            总计: ¥<span id="cart-total">0.00</span>
+        </div>
+        <button class="checkout-btn">去结算</button>
+    </div>
+</div>
+
+<!-- 购物车按钮 -->
+<div class="cart-btn" id="cart-toggle">
+    <span class="cart-icon">🛒</span>
+    <span class="cart-badge">0</span>
+</div>
+
+<div class="review-form">
+   
+
+   
+
+/
+
+  <script>
+    /*产品数据*/
+const products = [
+    {
+        id: 1,
+        name: "甘草饮料",
+        price: 98.0,
+        category: "食品饮料",
+        image: "images/food-1.jpg",
+        description: "精选优质甘草，传统工艺制作，甘甜回味，清热解毒。",
+        rating: 4.5,
+        reviews: 128
+    },
+    {
+        id: 2,
+        name: "甘草片",
+        price: 45.0,
+        category: "中药材",
+        image: "images/herb-1.jpg",
+        description: "传统中药材，调和诸药，清热解毒。",
+        rating: 4.2,
+        reviews: 86
+    },
+    {
+        id: 3,
+        name: "甘草精华胶囊",
+        price: 158.0,
+        category: "保健品",
+        image: "images/health-1.jpg",
+        description: "高浓度甘草精华，护肝养胃，增强免疫力。",
+        rating: 4.7,
+        reviews: 215
+    },
+    {
+        id: 4,
+        name: "甘草润肤霜",
+        price: 88.0,
+        category: "护肤品",
+        image: "images/skincare-1.jpg",
+        description: "天然甘草提取物，舒缓敏感肌肤，修复肌肤屏障。",
+        rating: 4.3,
+        reviews: 172
+    },
+    {
+        id: 5,
+        name: "甘草糖",
+        price: 28.0,
+        category: "食品饮料",
+        image: "images/candy-1.jpg",
+        description: "传统风味糖果，润喉止咳，休闲零食。",
+        rating: 4.0,
+        reviews: 64
+    },
+    {
+        id: 6,
+        name: "甘草面膜",
+        price: 129.0,
+        category: "护肤品",
+        image: "images/mask-1.jpg",
+        description: "含甘草黄酮成分，提亮肤色，淡化痘印。",
+        rating: 4.6,
+        reviews: 198
+    }
+];
+
+
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const productsContainer = document.getElementById('products');
+        const searchInput = document.getElementById('search');
+        const cartList = document.getElementById('cart-list');
+
+        // 显示产品
+        function displayProducts(filteredProducts) {
+            productsContainer.innerHTML = '';
+            filteredProducts.forEach(product => {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
+                productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <div>
+                        <h3>${product.name}</h3>
+                        <p>价格: ¥${product.price}</p>
+                         ${product.description ? `<p class="description">${product.description}</p>` : ''}
+                        <button onclick="addToCart(${product.id})">加入购物车</button>
+                        <button onclick="buyNow(${product.id})">立即购买</button>
+                    </div>
+                `;
+                productsContainer.appendChild(productDiv);
+            });
+        
+        const moreProductsDiv = document.createElement('div');
+    moreProductsDiv.className = 'more-products';
+    moreProductsDiv.innerHTML = `
+        <div class="coming-soon">
+            <h3>更多精彩产品</h3>
+            <p>甘草系列新品开发中，敬请期待！</p>
+            <div class="loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    `;
+    productsContainer.appendChild(moreProductsDiv);
+}
+
+        // 初始化显示所有产品
+        displayProducts(products);
+
+        // 搜索功能
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const filtered = products.filter(product => product.name.toLowerCase().includes(query));
+            displayProducts(filtered);
+        });
+
+        function addToCart(productId, quantity = 1) {
+    try {
+        // 1. 检查产品是否存在
+        const product = products.find(p => p.id === productId);
+        if (!product) {
+            console.error('产品不存在');
+            return false;
+        }
+
+        // 2. 检查购物车是否已存在本地存储中
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // 3. 检查产品是否已在购物车中
+        const existingItem = cart.find(item => item.id === productId);
+        
+        if (existingItem) {
+            // 如果已存在，增加数量
+            existingItem.quantity += quantity;
+        } else {
+            // 如果不存在，添加新产品
+            cart.push({
+                ...product,
+                quantity: quantity,
+                addedAt: new Date().toISOString() // 添加时间戳
+            });
+        }
+
+        // 4. 更新本地存储
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // 5. 更新UI
+        updateCart();
+        
+        // 6. 显示添加成功反馈（可选）
+        showToast('商品已添加到购物车');
+        
+        return true;
+    } catch (error) {
+        console.error('添加到购物车失败:', error);
+        return false;
+    }
+}
+
+        // 立即购买
+        function buyNow(productId) {
+            const product = products.find(p => p.id === productId);
+            alert(`您已购买 ${product.name}，总价为 ¥${product.price}`);
+            // 这里可以添加更多的购买流程，如跳转到支付页面等
+        }
+
+        // 更新购物车显示
+        function updateCart() {
+            cartList.innerHTML = '';
+            if (cart.length === 0) {
+                cartList.innerHTML = '<li>购物车为空</li>';
+                return;
+            }
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ¥${item.price}`;
+                cartList.appendChild(li);
+            });
+        }
+
+        // 初始化购物车显示
+        updateCart();
+        // 页面加载时初始化购物车
+document.addEventListener('DOMContentLoaded', () => {
+    // 从本地存储加载购物车
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
+    updateCartDisplay();
+    
+    // 加载产品数据
+    // fetchProducts(); 或者其他加载产品的方式
+});
+    </script>
+
+<!-- 资讯文章页内容 -->
+    <section class="container" id="articles" style="display: none;">
+        <div class="article-page">
+            <div class="article-header">
+                <h1 class="article-title">甘草对脾虚证消化道黏膜的保护机制</h1>
+                <div class="article-meta">发布时间: 2022年 | 作者: 曾星、贺毅、周丹、张娴 | 发布于：《中国中药杂志》</div>
+            </div>
+            <div class="article-content">
+                <h2>研究内容：探讨甘草对消化道黏膜的保护作用，包括促进细胞增殖、抑制凋亡及调节多胺代谢</h2>
+                <p>甘草作为中医“益气健脾”的代表药，其干燥根及根茎富含“三萜类（如甘草酸、甘草次酸）和黄酮类化合物”，具有显著的抗溃疡、抗炎及黏膜修复作用。甘草的甲醇提取物FM100已在日本作为抗溃疡药物上市，而甘草次酸的半合成产物”甘珀酸钠”（生胃酮）曾是消化性溃疡的经典治疗药物。  
+甘草可以促进细胞增殖：甘草提取物（如C3-C5组分）可剂量依赖性地刺激小肠上皮细胞（IEC-6）增殖，并上调鸟氨酸脱羧酶（ODC）活性，促进多胺（如精胺、亚精胺）合成，从而加速黏膜修复。  
+甘草可以抑制细胞凋亡：甘草成分通过调控Bcl-2家族蛋白、减少神经酰胺生成，并激活HuR/ATF-2信号通路，增强mRNA稳定性，抑制凋亡。  
+甘草可以抗氧化与抗炎：甘草酸能清除氧自由基，降低NF-κB和ICAM-1表达，减轻炎症介导的黏膜损伤。  
+</p>
+                
+              </div>
+               </div>
+
+
+                <div class="article-page">
+            <div class="article-header">
+                <h1 class="article-title">近十年甘草栽培研究进展</h1>
+                <div class="article-meta">发布时间: 2021年 | 作者: 曲雪洁、王晨、刘长利 | 发布于：《中国现代中药》</div>
+            </div>
+            <div class="article-content">
+                <h2>研究内容：综述甘草栽培技术，包括种子种苗、干旱胁迫、营养调控等，以提高栽培甘草的质量</h2>
+                <p>甘草作为药食同源的大宗中药材，在免疫调节、抗病毒的中医药方中使用频次极高。然而，野生甘草资源匮乏，人工栽培甘草存在年限短、质量差且不稳定的问题，严重影响其临床疗效与应用。
+ 
+本文从多方面总结其研究进展。在栽培环境上，明确了适宜甘草生长的地理区域与土壤条件；种子种苗方面，探索出提升种子发芽率和种苗质量的方法；种植模式上，有了新的优化与创新；水分调控掌握了合理灌溉的时机与量；营养调控知晓不同肥料对甘草生长的作用；病虫草害防治研究出有效的防治手段；采收和产地加工也有了更科学规范的流程。这些研究进展，能为后续甘草栽培技术研究及资源利用提供参考，助力解决甘草资源困境 ，推动甘草产业良性发展。
+</p>
+                
+              </div>
+               </div>
+
+
+                <div class="article-page">
+            <div class="article-header">
+                <h1 class="article-title">甘肃河西五种甘草属植物的植物学特性及药用价值研究</h1>
+                <div class="article-meta">发布时间: 2020年 | 作者: 陈小娜、邱黛玉、蔺海明 | 发布于：《中国沙漠》</div>
+            </div>
+            <div class="article-content">
+                <h2>研究内容：比较5种甘草属植物的农艺性状及甘草酸、甘草苷含量，推荐甘草作为河西荒漠化地区适宜种植的药用植物。</h2>
+                <p>本文章基于研究以栽培甘草、胀果甘草、光果甘草、刺果甘草及黄甘草为对象，探究其在甘肃河西地区的生态适应性及药用价值。研究人员对这5种甘草属植物的植物学特性进行比较，测量主茎高度、小叶数量、地上部分鲜重、根长、根部鲜重等指标。结果发现，刺果甘草主茎最高、小叶数最多、地上部分鲜重最大，黄甘草在这些方面则处于最低水平；甘草根长显著高于其他4个种，但根部鲜重与光果甘草、胀果甘草及刺果甘草无显著差异。研究还对2年生和3年生植株根部的甘草酸、甘草苷含量进行测定，发现这两种成分含量均为3年生比2年生显著增加；3年生根中，除刺果甘草的甘草酸含量最低，其他4个种均达到药典标准，而甘草苷含量只有甘草达到药典标准。综合各项指标，甘草在甘肃河西荒漠化地区生态适应性较好，可作为药材基源植物推广种植，刺果甘草则可用于防风固沙 。</p>
+                
+              </div>
+               </div>
+   
+
+   <div class="article-page">
+            <div class="article-header">
+                <h1 class="article-title">甘肃酒泉地区三种甘草的品质研究</h1>
+                <div class="article-meta">发布时间: 2014年 | 作者: 李成义、李硕、姚望禄 | 发布于：《中国药材》</div>
+            </div>
+            <div class="article-content">
+                <h2>研究内容：比较乌拉尔甘草、黄甘草和胀果甘草的性状、显微特征及有效成分含量差异，为甘草质量控制提供依据。</h2>
+                <p>本文章对甘肃酒泉地区分布的3种甘草进行品质研究，旨在为甘草品质规范化控制和当地甘草资源开发利用提供依据。
+ 研究人员综合运用文献考证、信访调查、实地采样，以及性状鉴定、显微特征对比、有效成分质量评价、市场前景分析等方法开展研究。结果显示，在3种野生甘草中，乌拉尔甘草和黄甘草原植物与药材性状较相似，胀果甘草与之差别大；三者显微特征也存在明显差异。以甘草酸、甘草苷为评价指标，通过高效液相色谱法测定得出，不同品种甘草有效成分含量不同，同一品种在不同产地的有效成分含量也有较大差异。
+ 该研究明确了甘肃酒泉地区三种甘草在性状、显微特征和有效成分含量上的特性与差异，为甘草品质的规范化控制提供科学依据，也为当地和甘肃省甘草资源的可持续开发利用奠定理论基础 。</p>
+                
+              </div>
+               </div>
+                <div class="article-page">
+            <div class="article-header">
+                <h1 class="article-title">谷雨光果甘草雪肌奶皮面膜</h1>
+                <div class="article-meta">发布时间: 2025年 | 发布者: 微蓝印记护肤品 </div>
+            </div>
+            <div class="article-content">
+                <h2>研究内容：该面膜含90%+纯度光甘草定（甘草提取物），主打美白、提亮、抗氧化，适用于熬夜肌和暗沉肌肤。  
+  - 采用“两步法”使用流程：先涂肌底精华，再敷面膜，促进吸收。  
+  - 产品强调无需避光、无需建立耐受，适合敏感肌使用。</h2>
+                <p>用户评价：前段时间熬夜追剧，肤色变得蜡黄暗沉，整个人看起来毫无气色，急需一款能提亮肤色的面膜。做了好多功课，最后入手了谷雨光果甘草雪肌奶皮面膜，真的太惊喜了！
+ 它的膜布像奶皮一样，软软糯糯的，敷在脸上特别服帖，而且精华液超多，满满地被锁在膜布里，不会到处滴落。使用方法也很特别，先涂肌底液，再敷面膜，用完后皮肤水润嫩滑，提亮效果超明显。
+用了一段时间后，皮肤肉眼可见地变白变亮，暗沉和黄气都改善了好多，即使熬夜后用它急救，第二天皮肤状态也依然在线，完全不会垮脸。不愧是添加了高纯度光甘草定的面膜，美白提亮效果真的一绝，真心推荐给想美白提亮的姐妹！</p>
+                
+              </div>
+               </div>
+
+           </section>
+
+
+
+<!-- 会员中心 -->
+ 
+
+<section class="container" id="member" style="display: none;">
+<div class="member-center">
+    <div class="register-container">
+        <h2>会员注册</h2>
+        <form id="registerForm" class="register-form">
+            <div class="form-group">
+                <label for="phone">手机号</label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="请输入11位手机号"
+                    pattern="1[3-9]\d{9}"
+                    required
+                >
+                <span class="valid-tip"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="code">验证码</label>
+                <div class="code-input">
+                    <input 
+                        type="text" 
+                        id="code" 
+                        name="code" 
+                        placeholder="6位验证码"
+                        pattern="\d{6}"
+                        required
+                    >
+                    <button type="button" class="send-code" onclick="sendSMSCode()">获取验证码</button>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">立即注册</button>
+        </form>
+        
+        <div class="agreement">
+            <input type="checkbox" id="agree" required checked>
+            <label for="agree">我已阅读并同意《用户服务协议》和《隐私政策》</label>
+        </div>
+    </div>
+</div>
+</section>
+
+
+<script>
+   
+// 短信验证码模拟
+let codeTimer = null;
+let remainingTime = 60;
+
+function sendSMSCode() {
+    const phone = document.getElementById('phone').value;
+    const btn = document.querySelector('.send-code');
+    
+    if (!/^1[3-9]\d{9}$/.test(phone)) {
+        showValidationTip('phone', '请输入有效的手机号');
+        return;
+    }
+    
+    // 模拟发送验证码
+    mockSendSMSCode(phone);
+    
+    // 禁用按钮并开始倒计时
+    btn.disabled = true;
+    btn.classList.add('active');
+    codeTimer = setInterval(() => {
+        btn.textContent = `重新发送(${remainingTime}s)`;
+        if (remainingTime <= 0) {
+            clearInterval(codeTimer);
+            btn.disabled = false;
+            btn.classList.remove('active');
+            btn.textContent = '获取验证码';
+            remainingTime = 60;
+            return;
+        }
+        remainingTime--;
+    }, 1000);
+}
+
+function mockSendSMSCode(phone) {
+    // 实际开发中需要调用短信接口
+    console.log(`验证码已发送至 ${phone}，测试验证码：123456`);
+}
+
+// 表单验证
+function showValidationTip(fieldId, message) {
+    const tip = document.querySelector(`#${fieldId}`).nextElementSibling;
+    tip.textContent = message;
+    setTimeout(() => tip.textContent = '', 3000);
+}
+
+// 表单提交
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        phone: this.phone.value,
+        code: this.code.value
+    };
+    
+    // 前端验证
+    if (!/^1[3-9]\d{9}$/.test(formData.phone)) {
+        showValidationTip('phone', '手机号格式错误');
+        return;
+    }
+    
+    if (!/^\d{6}$/.test(formData.code)) {
+        showValidationTip('code', '验证码格式错误');
+        return;
+    }
+    
+    // 模拟后端验证
+    mockRegister(formData);
+});
+
+function mockRegister(data) {
+    // 实际开发中需要发送到后端验证
+    if (data.code !== '123456') {
+        showValidationTip('code', '验证码错误');
+        return;
+    }
+    
+    // 注册成功处理
+    alert('注册成功！欢迎加入会员');
+    localStorage.setItem('member', JSON.stringify({
+        phone: data.phone,
+        joinTime: new Date().toISOString()
+    }));
+    
+    // 跳转到会员中心
+    window.location.href = '/member';
+}
+
+// 实时手机号验证
+document.getElementById('phone').addEventListener('input', function() {
+    this.value = this.value.replace(/[^\d]/g, '').slice(0, 11);
+});
+</script>
+</div>
+</body>
+</html>
